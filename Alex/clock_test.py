@@ -6,6 +6,7 @@ app = App(root)
      
         
 clock_screen = ScreenFactory(app)
+my_clock = tk.Label(text="")
 clock_screen.add_element(my_clock, 0, 0)
 app.add_screen(clock_screen)
 

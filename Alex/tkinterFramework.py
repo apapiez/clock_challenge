@@ -93,9 +93,6 @@ class App(tk.Frame):
         #Activate each of the elements now in the active elements list
         for item in self.active_elements:
             item[0].grid(row=item[1], column=item[2])
-        print ("contents of active elements :")
-        for item in self.active_elements:
-            print(item[0], "row: ",item[1], "Column: ",item[2])
         return
         
   
