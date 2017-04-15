@@ -13,7 +13,7 @@ app.add_screen(clock_screen)
 app.set_active_screen(app.screens[0])
 
 def update_time():
-    my_clock["text"] = str(time.gmtime()[3])+":"+str(time.gmtime()[4])+":"+str(time.gmtime()[5])
+    my_clock["text"] = str(time.localtime()[3])+":"+str(time.localtime()[4])+":"+str(time.localtime()[5])
     root.after(200, update_time)
 
 if __name__ == "__main__":
