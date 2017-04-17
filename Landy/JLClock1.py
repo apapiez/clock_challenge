@@ -46,7 +46,7 @@ class Window:
 				
 	def	timedif(self,start,stop):
 		difsec=stop-start
-		print(difsec)
+		
 		
 		if self.stopped>0:
 			difsec-=self.stopped
