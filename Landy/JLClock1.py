@@ -16,7 +16,7 @@ class Window:
 		self.root=root
 		self.twidth=width
 		self.cheight=height
-		self.time=time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
+		self.time=time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime())
 		self.start=time.time()
 		self.stop=time.time()
 		self.timer=self.timedif(self.start,self.stop)
@@ -42,11 +42,12 @@ class Window:
 		difsec=stop-start
 			
 		
-		return(dif)
+		return(difsec)
 		
 	def start(self):
 		self.start=time.time()
 		self.stop=0
+		print("go")
 		
 	def stop(self):
 		self.stop=time.time()
@@ -56,7 +57,7 @@ class Window:
 		self.time=time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
 		self.timebox.config(text=self.time)
 		if self.stop==0:
-			self.timerbox.config(text=self.timedif(self.start,time.gmtime()))
+			self.timerbox.config(text=self.timedif(self.start,time.localtime()))
 		root.after(self.tick, lambda: self.update())
 
 
