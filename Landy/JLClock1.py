@@ -24,10 +24,12 @@ class Window:
 		self.timebox.grid(row=0,columnspan=4,column=0)
 		self.timerbox=tkinter.Label(self.root,width=self.twidth,text=self.timer)
 		self.timerbox.grid(row=1,columnspan=4,column=0)
+		
+		
 		self.config=[ #[type, grid row, grid column, text/label, command, (scale)[: from,to,increment,setvalue] ]
 		#['button',2,0,'Mode',self.mode,0],#0
-		['button',2,1,'Start',self.start,0],#1
-		['button',2,2,'Stop',self.stop,1],#2
+		['button',2,1,'Start',self.startb,0],#1
+		['button',2,2,'Stop',self.stopb,1],#2
 		]
 		self.control=[]
 		
@@ -44,20 +46,21 @@ class Window:
 		
 		return(difsec)
 		
-	def start(self):
+	def startb(self):
+		print("go")
 		self.start=time.time()
 		self.stop=0
 		print("go")
 		
-	def stop(self):
-		self.stop=time.time()
-		self.timerbox.config(text=self.timedif(self.start,self.start()))
+	def stopb(self):
+		print("go")
+		self.stop=1
 		
 	def update(self):
 		self.time=time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
 		self.timebox.config(text=self.time)
 		if self.stop==0:
-			self.timerbox.config(text=self.timedif(self.start,time.localtime()))
+			self.timerbox.config(text=self.timedif(self.start,time.time()))
 		root.after(self.tick, lambda: self.update())
 
 
