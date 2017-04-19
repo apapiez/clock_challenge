@@ -55,6 +55,11 @@ class Screen(tk.Frame):
         self._element["command"] = None
         self.callbacks.remove(_callback)
         return
+    def grid_elements(self):
+        for x in self.elements:
+            x[0].grid(row=x[1], column=x[2])
+        return
+        
        
     
 class App(tk.Frame):
